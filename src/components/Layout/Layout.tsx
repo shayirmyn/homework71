@@ -1,8 +1,12 @@
 import React, { PropsWithChildren } from "react";
+import NavHead from "../NavHead/NavHead";
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     return (
         <div>
-            <main>{children}</main>
+            <header>
+                <NavHead/>
+            </header>
+            <main className="container-fluid">{children}</main>
         </div>
     );
 };

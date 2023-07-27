@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {getAllDishes} from "../../store/adminThunk";
+import {deleteDish, getAllDishes} from "../../store/adminThunk";
 import {NavLink} from "react-router-dom";
 import Spinner from "../../components/Spinners/Spinner";
 
@@ -16,6 +16,11 @@ const AdminDishes = () => {
 
     const loading = useAppSelector(state => state.dishes);
 
+    const onDelete = async(id: string) => {
+        await dispatch(deleteDish(id));
+        await dispatch(getAllDishes());
+    };
+
     return (
         <div className="card text-center postCard shadow-lg p-3 mt-5 bg-body-tertiary">
             <div className="dishesHead">
@@ -28,7 +33,7 @@ const AdminDishes = () => {
                     <NavLink to="/admin/new-dish" className="btn btn-secondary">New Dish</NavLink>
                 </div>
             </div>
-            {loading.getLoading ? (<Spinner />): (
+            {loading.getLoading ? (<Spinner/>) : (
                 dishes.map((dish) => (
                     <div key={dish.id}>
                         <div className="innerPost mt-2 mb-2 shadow-lg p-2 bg-body-tertiary">
@@ -38,8 +43,15 @@ const AdminDishes = () => {
                                     <img src={dish.photo} alt={dish.name}/>
                                 </div>
                             </div>
-                            <div className="card-footer text-body-secondary">
-                                price: <strong>{dish.price} KGS</strong>
+                            <div className="card-footer text-body-secondary d-flex justify-content-between">
+                                <div className="ms-3">
+                                    price: <strong>{dish.price} KGS</strong>
+                                </div>
+                                <div>
+                                    <button className="btn btn-danger"
+                                            onClick={() => onDelete(dish.id)}
+                                    >delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -33,7 +33,7 @@ const AddForm = () => {
     const onFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         await dispatch(postDish(submitData));
-        navigate("/admin");
+        navigate("/admin/dishes");
     };
 
     return (
@@ -80,7 +80,7 @@ const AddForm = () => {
                         <label htmlFor="description">Photo preview: </label>
                         <img src={submitData.photo} alt={submitData.name}/>
                     </div>
-                    <NavLink to="/admin"
+                    <NavLink to="/admin/dishes"
                              className="btn btn-danger ms-auto d-block mt-3 me-2">Back to dishes</NavLink>
                     <button
                             type="submit"
