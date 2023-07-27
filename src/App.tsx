@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import AddForm from "./containers/AdminForms/AddForm";
+import AdminDishes from "./containers/AdminDishes/AdminDishes";
+import Layout from "./components/Layout/Layout";
+import NavHead from "./components/NavHead/NavHead";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+    return (
+        <>
+            <Layout>
+                <Routes>
+                    <Route path="/admin" element={(
+                        <NavHead />
+                    )}>
+                    </Route>
+                    <Route path="/admin/dishes" element={(
+                        <AdminDishes />
+                    )}/>
+                    <Route path="/admin/new-dish" element={(
+                        <AddForm />
+                    )}/>
+                </Routes>
+            </Layout>
+        </>
+    );
+};
 
 export default App;
