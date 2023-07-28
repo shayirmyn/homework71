@@ -1,9 +1,3 @@
-export interface ISubmit {
-    name: string;
-    price: string;
-    photo: string;
-}
-
 export interface IGet {
     name: string;
     price: string;
@@ -12,7 +6,7 @@ export interface IGet {
 
 export interface IPut {
     id: string,
-    data: ISubmit,
+    data: IGet,
 }
 
 export interface IGet2 {

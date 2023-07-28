@@ -5,7 +5,6 @@ import {NavLink} from "react-router-dom";
 import Spinner from "../../components/Spinners/Spinner";
 
 const AdminDishes = () => {
-
     const dispatch = useAppDispatch();
 
     useEffect(() => {

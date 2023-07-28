@@ -5,9 +5,9 @@ import AddForm from "./containers/AddEditForm/AddForm";
 import AdminDishes from "./containers/AdminDishes/AdminDishes";
 import Layout from "./components/Layout/Layout";
 import EditForm from "./containers/AddEditForm/EditForm";
+import UserHome from "./containers/UserHome/UserHome";
 
 const App = () => {
-
     return (
         <>
             <Layout>
@@ -18,6 +18,9 @@ const App = () => {
                         </div>
                     )}>
                     </Route>
+                    <Route path="/" element={(
+                        <UserHome />
+                    )}/>
                     <Route path="/admin/dishes" element={(
                         <AdminDishes />
                     )}/>

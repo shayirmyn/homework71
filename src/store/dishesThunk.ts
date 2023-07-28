@@ -1,8 +1,8 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axiosApi from "../axiosApi";
-import {IApiGet, IGet, IGet2, IPut, ISubmit} from "../types";
+import {IApiGet, IGet, IGet2, IPut} from "../types";
 
-export const postDish = createAsyncThunk<void, ISubmit>(
+export const postDish = createAsyncThunk<void, IGet>(
     "post/fetch",
     async (data) => {
         await axiosApi.post(`/dishes.json`, data);

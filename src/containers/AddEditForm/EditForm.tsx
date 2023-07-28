@@ -23,7 +23,6 @@ const EditForm = () => {
             data: newDish
         }));
 
-
         navigate("/admin/dishes");
     };
 
