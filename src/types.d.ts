@@ -28,3 +28,8 @@ export interface IGet2 {
 export interface IApiGet {
     [id: string]: IGet;
 }
+
+export interface IOrdersBasket {
+    id: string;
+    dishes: IBasket[];
+}

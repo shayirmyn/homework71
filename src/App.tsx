@@ -6,6 +6,7 @@ import AdminDishes from "./containers/AdminDishes/AdminDishes";
 import Layout from "./components/Layout/Layout";
 import EditForm from "./containers/AddEditForm/EditForm";
 import UserHome from "./containers/UserHome/UserHome";
+import AdminOrders from "./containers/AdminOrders/AdminOrders";
 
 const App = () => {
     return (
@@ -21,6 +22,9 @@ const App = () => {
                     <Route path="/" element={(<UserHome />)} />
                     <Route path="/admin/dishes" element={(
                         <AdminDishes />
+                    )}/>
+                    <Route path="/admin/orders" element={(
+                        <AdminOrders />
                     )}/>
                     <Route path="/admin/new-dish" element={(
                         <AddForm />
