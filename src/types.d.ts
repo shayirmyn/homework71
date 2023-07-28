@@ -4,6 +4,11 @@ export interface IGet {
     photo: string;
 }
 
+export interface IBasket extends IGet {
+    id: string;
+    amount: number;
+}
+
 export interface IPut {
     id: string,
     data: IGet,

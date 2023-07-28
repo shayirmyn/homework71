@@ -30,3 +30,11 @@ body {
   border: 1px;
   border-radius: 3px;
 }
+
+.priceModal {
+  margin-left: 80px;
+}
+
+.modalBtn {
+  margin-left: 420px;
+}
