@@ -1,5 +1,8 @@
 import React from 'react';
 import {IBasket} from "../../types";
+import {useAppDispatch, useAppSelector} from "../../app/hooks";
+import {postOrder} from "../../store/ordersThunk";
+import BtnSpinner from "../Spinners/BtnSpinner";
 
 interface IProps {
     basket: IBasket[];
@@ -8,9 +11,18 @@ interface IProps {
 }
 
 const CheckOut: React.FC<IProps> = ({basket, cancel, onDelete}) => {
+    const dispatch = useAppDispatch();
+
+    const loading = useAppSelector(state => state.orders);
+
     const totalPrice = basket.reduce((acc, item) => {
         return acc + parseFloat(item.price) * item.amount;
     }, 150);
+
+    const onOrder = async (e: React.MouseEvent) => {
+        await dispatch(postOrder(basket))
+        cancel(e);
+    }
 
     return (
         <div className="position-fixed top-0 start-0 bottom-0 end-0 bg-black bg-opacity-50">
@@ -55,7 +67,7 @@ const CheckOut: React.FC<IProps> = ({basket, cancel, onDelete}) => {
                 </div>
                 <div className="modalBtn mt-4">
                     <button className="btn btn-danger me-2" onClick={cancel}>Cancel</button>
-                    <button className="btn btn-primary">Order</button>
+                    <button className="btn btn-primary" onClick={onOrder}>{loading.postLoading && <BtnSpinner />}Order</button>
                 </div>
             </div>
         </div>

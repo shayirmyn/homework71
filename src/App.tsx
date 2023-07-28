@@ -18,9 +18,7 @@ const App = () => {
                         </div>
                     )}>
                     </Route>
-                    <Route path="/" element={(<UserHome />)}>
-                        {/*<Route path="checkout" element={(<CheckOut basket={})}/>x*/}
-                    </Route>
+                    <Route path="/" element={(<UserHome />)} />
                     <Route path="/admin/dishes" element={(
                         <AdminDishes />
                     )}/>

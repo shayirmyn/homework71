@@ -9,6 +9,10 @@ export interface IBasket extends IGet {
     amount: number;
 }
 
+export interface IOrderDish {
+    [id: string]: number,
+}
+
 export interface IPut {
     id: string,
     data: IGet,
