@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import AddForm from "./containers/AdminForms/AddForm";
+import AddForm from "./containers/AddEditForm/AddForm";
 import AdminDishes from "./containers/AdminDishes/AdminDishes";
 import Layout from "./components/Layout/Layout";
+import EditForm from "./containers/AddEditForm/EditForm";
 
 const App = () => {
 
@@ -22,6 +23,9 @@ const App = () => {
                     )}/>
                     <Route path="/admin/new-dish" element={(
                         <AddForm />
+                    )}/>
+                    <Route path="/admin/:id/edit" element={(
+                        <EditForm />
                     )}/>
                 </Routes>
             </Layout>

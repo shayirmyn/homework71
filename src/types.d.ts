@@ -10,6 +10,11 @@ export interface IGet {
     photo: string;
 }
 
+export interface IPut {
+    id: string,
+    data: ISubmit,
+}
+
 export interface IGet2 {
     id: string;
     name: string;

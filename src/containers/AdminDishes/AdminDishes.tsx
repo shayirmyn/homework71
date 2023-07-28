@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {deleteDish, getAllDishes} from "../../store/adminThunk";
+import {deleteDish, getAllDishes} from "../../store/dishesThunk";
 import {NavLink} from "react-router-dom";
 import Spinner from "../../components/Spinners/Spinner";
 
@@ -48,9 +48,17 @@ const AdminDishes = () => {
                                     price: <strong>{dish.price} KGS</strong>
                                 </div>
                                 <div>
-                                    <button className="btn btn-danger"
-                                            onClick={() => onDelete(dish.id)}
-                                    >delete</button>
+                                    <div className="d-inline-block">
+                                        <NavLink to={`/admin/${dish.id}/edit`}
+                                                 className="btn btn-success"
+                                        >Edit</NavLink>
+                                    </div>
+
+                                    <div className="d-inline-block ms-2">
+                                        <button className="btn btn-danger"
+                                                onClick={() => onDelete(dish.id)}
+                                        >Delete</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

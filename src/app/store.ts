@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {dishesReducers} from "../store/adminSlice";
+import {dishesReducers} from "../store/dishesSlice";
 
 export const store = configureStore({
     reducer: {
