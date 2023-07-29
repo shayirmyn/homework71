@@ -21,9 +21,14 @@ const CheckOut: React.FC<IProps> = ({ basket, cancel, onDelete }) => {
 
   const onOrder = async (e: React.MouseEvent) => {
     await dispatch(postOrder(basket));
-    basket = [];
     cancel(e);
   };
+
+  let emptyBasket = false;
+
+  if (basket.length < 1) {
+    emptyBasket = true;
+  }
 
   return (
     <div className="position-fixed top-0 start-0 bottom-0 end-0 bg-black bg-opacity-50">
@@ -70,7 +75,7 @@ const CheckOut: React.FC<IProps> = ({ basket, cancel, onDelete }) => {
           <button className="btn btn-danger me-2" onClick={cancel}>
             Cancel
           </button>
-          <button className="btn btn-primary" onClick={onOrder}>
+          <button className="btn btn-primary" disabled={emptyBasket} onClick={onOrder}>
             {loading.postLoading && <BtnSpinner />}Order
           </button>
         </div>

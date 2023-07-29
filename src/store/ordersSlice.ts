@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { deleteOrder, getOrders, postOrder } from "./ordersThunk";
-import { IOrdersBasket } from "../types";
+import {IOrdersBasket} from "../types";
 
 interface IOrdersSlice {
   postLoading: boolean;
