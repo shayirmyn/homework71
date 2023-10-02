@@ -7,7 +7,7 @@ import Spinner from "../../components/Spinners/Spinner";
 import DishForm from "../../components/DishForm/DishForm";
 
 const AddForm = () => {
-  const loading = useAppSelector((state) => state.dishes);
+  const loading = useAppSelector((state) => state.dishes.postLoading);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const AddForm = () => {
 
   return (
     <div className="mt-5 formDiv shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-      {loading.postLoading ? <Spinner /> : <DishForm onSubmit={addDish} />}
+      {loading ? <Spinner /> : <DishForm onSubmit={addDish} />}
     </div>
   );
 };
